@@ -64,8 +64,9 @@ util_nbVizMulti(lx,LX,nb,XtrA,YtrA,2);
 M = confusionmat(YteA, predTeA)
 
 %% Cell 6. Tell Naive bayes to use a uniform prior.
-%S.prob = [INSERTME]; S.group = [1, 2, 3];
-%nb = fitcnb(XtrA, YtrA,  'Prior', S);
+
+S.prob = [1/3,1/3,1/3];; S.group = [1, 2, 3];
+nb = fitcnb(XtrA, YtrA,  'Prior', S.prob);
 
 [~,pTr,~] = predict(nb, XtrA); [~,predTrA] = max(pTr,[],2); fprintf(1,'Train acc: %1.2f\n', sum(YtrA==predTrA)/numel(YtrA));
 
@@ -75,9 +76,11 @@ util_nbVizMulti(lx,LX,nb,XtrA,YtrA,2);
 M = confusionmat(YteA, predTeA)
 
 %% Cell 7. Apply NB from country A to country B.
-%S.prob = [INSERTME]; S.group = [1, 2, 3];
-nb = NaiveBayes.fit(XtrA, YtrA, 'Prior', S); %Train for country A.
-pTr = nb.posterior(XtrB); [~,predTrB] = max(pTr,[],2); fprintf(1,'Train acc: %1.2f\n', sum(YtrB==predTrB)/numel(YtrB)); %Apply to country B.
-pTe = nb.posterior(XteB); [~,predTeB] = max(pTe,[],2); fprintf(1,'Test  acc: %1.2f\n', sum(YteB==predTeB)/numel(YteB)); %Apply to country B.
+S.prob = [2/4,1/4,1/4]; S.group = [1, 2, 3];
+nb = fitcnb(XtrA, YtrA, 'Prior', S.prob); %Train for country B.
+[~,pTr,~] = predict(nb, XtrB); [~,predTrB] = max(pTr,[],2); fprintf(1,'Train acc: %1.2f\n', sum(YtrB==predTrB)/numel(YtrB));
+
+
+[~,pTe,~] = predict(nb, XteB); [~,predTeB] = max(pTe,[],2); fprintf(1,'Test  acc: %1.2f\n', sum(YteB==predTeB)/numel(YteB));
 util_nbVizMulti(lx,LX,nb,XtrB,YtrB,2);
 M = confusionmat(YteB, predTeB)

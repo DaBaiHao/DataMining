@@ -3,7 +3,7 @@ rng(2);
 lx=-3:0.05:3;
 [LX1,LX2]=meshgrid(lx,lx);
 LX=[LX1(:),LX2(:)];
-dim = 2;            %Generate data with only 2 dimensions.
+dim = 200;            %Generate data with only 2 dimensions.
 %dim = 200;          %Generate data with 200 dimensions.
 
 m1 = 1; m2 = 0; s1 = 1; s2 = 1; NC=25; 
@@ -24,6 +24,8 @@ pTe = util_lrclass_2c(Xte,w); predTe = pTe>0.5; fprintf(1,'LR Test acc: %1.2f\n'
 
 %% More NB.
 sfigure(2); clf; plot(Xtr(Ytr==1,1),Xtr(Ytr==1,2),'rx',Xtr(Ytr==0,1),Xtr(Ytr==0,2),'bo','linewidth',2);
-nb = NaiveBayes.fit(Xtr, Ytr, 'Distribution', 'normal');
-pTr = nb.posterior(Xtr); predTr = pTr(:,2)>0.5; fprintf(1,'NB Train acc: %1.2f\n', sum(Ytr==predTr)/numel(Ytr));
-pTe = nb.posterior(Xte); predTe = pTe(:,2)>0.5; fprintf(1,'NB Test  acc: %1.2f\n', sum(Yte==predTe)/numel(Yte));
+nb = fitcnb(Xtr, Ytr, 'Distribution', 'normal');
+
+
+[~,pTr,~] = predict(nb, Xtr); predTr = pTr(:,2)>0.5; fprintf(1,'NB Train acc: %1.2f\n', sum(Ytr==predTr)/numel(Ytr));
+[~,pTe,~] = predict(nb, Xte); predTe = pTe(:,2)>0.5; fprintf(1,'NB Test  acc: %1.2f\n', sum(Yte==predTe)/numel(Yte));
