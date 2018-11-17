@@ -50,8 +50,8 @@ YteB = Yte(idx);
 XteB = Xte(idx,:);
 
 W = zeros(3,size(Xtr,2)+1);
-f = @(W)util_lrlik_multi2(YtrB,XtrB,W,0.01);
-w = fminunc(f,w0,options);
+f = @(W)util_lrlik_mulyi2(YtrB,XtrB,W,0.01);
+w = fminunc(f,w0
 util_lrVizMulti(lx,LX,w,XtrB,YtrB,2);
 
 
