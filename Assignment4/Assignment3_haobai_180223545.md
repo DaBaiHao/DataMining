@@ -23,3 +23,17 @@ There are 3 attributes are selected,
 The selected attributes match the attributes founded in Q3 when Subset size is 3.
 
 ### 3
+Pick attributes
+ - petallength
+ - petalwidth
+Discarded attributes
+ - sepallength
+ - sepalwidth
+ - Copy of sepallength
+ - Copy of sepalwidth
+ - Copy of Copy of sepallength
+ - Copy of Copy of sepalwidth
+ - Copy of Copy of Copy of sepallength
+ - Copy of Copy of Copy of sepalwidth
+
+### 4
