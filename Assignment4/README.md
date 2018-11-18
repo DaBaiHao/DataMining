@@ -37,3 +37,7 @@ Discarded attributes
  - Copy of Copy of Copy of sepalwidth
 
 ### 4
+
+#### Reconstruction Accuracy graph:
+
+# ![img](Lab5/reconstructionAccuracy.jpg)
