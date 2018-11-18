@@ -13,22 +13,13 @@ for i = 2: 16, subplot(4,4,i); imagesc(reshape(U(:,i-1),[64,64])); title(sprintf
 
 %% Cell 3. PCA Encoding and Reconstruction.
 % glass min 5, facil 6
-% nPCA> 58, encoding fidelity is 99%
-nPCA = 25; 
+nPCA = 24; 
 pcaFaces  = U(:,1:nPCA)'*(faces-meanFace*ones(1,N));      %PCA Encoding. Raw images faces => compressed images pcaFaces.
 reconstrFaces = U(:,1:nPCA)*pcaFaces+meanFace*ones(1,N);  %PCA Decoding. Compressed images pcaFaces => Raw images reconstrFaces.
-%figure(1); clf; for i = 1 : 9, subplot(3,3,i); imagesc([reshape(faces(:,10*i),[64,64]),reshape(reconstrFaces(:,10*i),[64,64])]); end; colormap gray;
+figure(1); clf; for i = 1 : 9, subplot(3,3,i); imagesc([reshape(faces(:,10*i),[64,64]),reshape(reconstrFaces(:,10*i),[64,64])]); end; colormap gray;
 originalSize = round(numel(faces)*8/1e3);
 encodedSize = round(numel(pcaFaces)*8/1e3);
 fprintf(1,'Original/Encoding Size: %d/%d KB. Reconstruction Error: %1.3f\n', originalSize, encodedSize, sum((reconstrFaces(:)-faces(:)).^2)/sum(faces(:).^2));
-
-
-plot(cumsum(eigvals)/sum(eigvals));
-ylim([0,1]);
-xlabel('Dimensions');
-ylabel('Reconstruction Accuracy');
-
-
 
 %% Cell4. Error and EigenValues.
 eigvals = diag(S).^2;
