@@ -14,7 +14,7 @@ for i = 2: 16, subplot(4,4,i); imagesc(reshape(U(:,i-1),[64,64])); title(sprintf
 %% Cell 3. PCA Encoding and Reconstruction.
 % glass min 5, facil 6
 % nPCA> 58, encoding fidelity is 99%
-nPCA = 25; 
+nPCA = 57; 
 pcaFaces  = U(:,1:nPCA)'*(faces-meanFace*ones(1,N));      %PCA Encoding. Raw images faces => compressed images pcaFaces.
 reconstrFaces = U(:,1:nPCA)*pcaFaces+meanFace*ones(1,N);  %PCA Decoding. Compressed images pcaFaces => Raw images reconstrFaces.
 %figure(1); clf; for i = 1 : 9, subplot(3,3,i); imagesc([reshape(faces(:,10*i),[64,64]),reshape(reconstrFaces(:,10*i),[64,64])]); end; colormap gray;

@@ -38,6 +38,10 @@ Discarded attributes
 
 ### 4
 
-#### Reconstruction Accuracy graph:
 
-# ![img](Lab5/reconstructionAccuracy.jpg)
+
+
+When PCs/database dimension is 56, the reconstruction accuracy achieve 99.02% reconstruction accuracy.
+# ![img](Lab5/cursorPoint.png)
+
+The number is not match the value from Q2.6. In Q2.6 the PCs/database dimension value found is 58. And when the PCs/database dimension number between 54 to 57 , the reconstruction error is 0.010.In Q2.6, it is hard to infer which number the accuracy reconstruction error will under 0.010 around 54 to 58 because of rounding. However, in the graph shows that the reconstruction accuracy achieve will achieve 99.02% when PCs/database dimension value is 56.
