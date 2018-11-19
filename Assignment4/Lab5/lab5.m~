@@ -39,8 +39,8 @@ xlabel('Dimensions');
 ylabel('Reconstruction Accuracy');
 %% Cell 5.
 % Find out how classification accuracy varies with PCA dimensions.
-array = zeros(200);
-for i = 1: 200
+array = zeros(4096);
+for i = 1: 4096
     nPCA = i; 
     pcaFaces  = U(:,1:nPCA)'*(faces-meanFace*ones(1,N));    %PCA Encoding.
     xTr = pcaFaces(:,1:2:end); yTr = gnd(1:2:end);
