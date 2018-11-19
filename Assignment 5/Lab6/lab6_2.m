@@ -6,7 +6,7 @@ X = meas(:,1:2);
 figure(1); clf; gscatter(X(:,1),X(:,2),y); 
 
 %% Cell 2: Setup K-means.
-rng(1);
+rng(8);
 K = 3;
 centres = randn(K,2)+ones(K,1)*mean(X,1);
 utilPlotKmeans(X,centres,[],false);
