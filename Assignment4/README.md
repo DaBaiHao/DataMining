@@ -27,7 +27,9 @@ The selected attributes match the attributes founded in Q3 when Subset size is 3
 Pick attributes
 
 - petallength
-- petalwidth Discarded attributes
+- petalwidth 
+
+Discarded attributes
 - sepallength
 - sepalwidth
 - Copy of sepallength
