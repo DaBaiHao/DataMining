@@ -21,3 +21,25 @@ seed | K | cluster quality
 5    | 3 | 83.5
 6    | 3 | 65.6
 7    | 3 | 62.7
+
+## 3
+
+Clustering accuracy improved after uncommenting
+
+```matlab
+X = meas; d = 4;
+```
+
+The **meas** has 150 rows and 4 columns.
+
+Before uncommenting the code above.
+
+```matlab
+X = meas(:,1:2); d = 2;
+```
+
+The **X** takes the first two columns of **meas**.
+
+Why???????????
+
+## 4

@@ -21,6 +21,7 @@ LX=[LX1(:),LX2(:)];
 
 %% Cell 2: Train Naive Bayes.
 nb = NaiveBayes.fit(Xtr, Ytr, 'Distribution', 'normal');
+
 pTrNB = nb.posterior(Xtr); predTr = pTrNB(:,2)>0.5; fprintf(1,'NB Train acc: %1.2f\n', sum(Ytr==predTr)/numel(Ytr));
 pTeNB = nb.posterior(Xte); predTe = pTeNB(:,2)>0.5; fprintf(1,'NB Test  acc: %1.2f\n', sum(Yte==predTe)/numel(Yte));
 util_nbVizMulti(lx,LX,nb,Xtr,Ytr,2,0.5);

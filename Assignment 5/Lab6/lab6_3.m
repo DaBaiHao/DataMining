@@ -1,7 +1,7 @@
 %% Cell 1: Load some data.
 load fisheriris; %Load classic flower dataset.
 X = meas(:,1:2); d = 2;
-%X = meas; d = 4;
+X = meas; d = 4;
 [sval,~,y]=unique(species);
 
 figure(4); clf; gscatter(X(:,1),X(:,2),y);  title('True Classe Labels');
