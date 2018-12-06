@@ -82,20 +82,4 @@ for i = 0:0.05:1
     
     count = count+1;
 end
-figure(1)
-% False Positive Rate. True Positive Rate.
-plot(fpr_lr,tpr_lr, 'bd-', 'LineWidth', 2);
-title('ROC Curve');
-xlabel('False Positive Rate');
-ylabel('True Positive Rate');
-grid on;
-line([0,1], [0,1], 'LineWidth', 2, 'Color', 'k');
-axis square;
-figure(2)
-plot(fpr_nb,tpr_nb,'bd-', 'LineWidth', 2 );
-title('ROC Curve');
-xlabel('False Positive Rate');
-ylabel('True Positive Rate');
-grid on;
-line([0,1], [0,1], 'LineWidth', 2, 'Color', 'k');
-axis square;
+

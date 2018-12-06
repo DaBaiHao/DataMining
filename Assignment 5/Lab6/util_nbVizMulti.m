@@ -1,6 +1,7 @@
 function util_nbVizMulti(lx,LX,nb,data,labels,VIZ,thresh)
  
-Y = nb.posterior(LX);
+[~,Y,~] = predict(nb, LX);
+
 Y = Y(:,2)>thresh;
 %[~,Y] = max(Y,[],2);
 
