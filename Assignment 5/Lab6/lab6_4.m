@@ -50,7 +50,7 @@ util_nbVizMulti(lx,LX,nb,Xtr,Ytr,2,thr);
 %% Cell 4;
 % This code computes the confusion matrix, and TPR/FPR for NB and LR/MaxEnt.
 % Add a loop over threshold to try a whole bunch of thresholds, and plot fpr against tpr to generate an roc curve.
-thr = 0.25;
+thr = 0.65;
 predTr = pTrLR>thr; fprintf(1,'LR Train acc: %1.2f\n', sum(Ytr==predTr)/numel(Ytr));
 predTe = pTeLR>thr; fprintf(1,'LR Test acc: %1.2f\n',  sum(Yte==predTe)/numel(Yte));
 cmat = confusionmat(Yte,double(predTe))
@@ -84,6 +84,9 @@ for i = 0:0.05:1
     [~,~,~,aucNB(count)]=perfcurve(Yte,pTeNB(:,2),1);
     count = count+1;
 end
+nb_tpr = find(fpr_nb == 0.16);
+lr_tpr = find(fpr_lr == 0.16);
+
 figure(1)
 % False Positive Rate. True Positive Rate.
 plot(fpr_lr,tpr_lr, 'bd-', 'LineWidth', 2);

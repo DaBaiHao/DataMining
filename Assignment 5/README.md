@@ -155,8 +155,11 @@ line([0,1], [0,1], 'LineWidth', 2, 'Color', 'k');
 axis square;
 ```
 
-## 4-8
+## 4-11
 
-## 4-9
+## 4-12
 
-In both of the roc curve, the
+- When the Naïve Bayes classifiers' FPR is 0.16, the maximum TPR is 0.64.
+- When the LR classifiers' FPR is 0.16, the maximum TPR is 0.60.
+
+So Naïve Bayes classifier is preferabled because maximum TPR is better.
