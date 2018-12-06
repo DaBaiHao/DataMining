@@ -156,3 +156,7 @@ axis square;
 ```
 
 ## 4-8
+
+## 4-9
+
+In both of the roc curve, the

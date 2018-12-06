@@ -62,7 +62,8 @@ predTe = pTeNB(:,2)>thr; fprintf(1,'NB Test  acc: %1.2f\n', sum(Yte==predTe)/num
 cmat = confusionmat(Yte,double(predTe))
 tpr_nb=cmat(2,2)/sum(Yte==1);
 fpr_nb=cmat(1,2)/sum(Yte==0);
-
+[~,~,~,aucLR]=perfcurve(Yte,pTeLR,1); 
+[~,~,~,aucNB]=perfcurve(Yte,pTeNB(:,2),1);
 %%
 count = 1;
 for i = 0:0.05:1
@@ -79,7 +80,8 @@ for i = 0:0.05:1
     tpr_nb(count)=cmat(2,2)/sum(Yte==1);
     fpr_nb(count)=cmat(1,2)/sum(Yte==0);
     
-    
+    [~,~,~,aucLR(count)]=perfcurve(Yte,pTeLR,1); 
+    [~,~,~,aucNB(count)]=perfcurve(Yte,pTeNB(:,2),1);
     count = count+1;
 end
 figure(1)
@@ -99,3 +101,8 @@ ylabel('True Positive Rate');
 grid on;
 line([0,1], [0,1], 'LineWidth', 2, 'Color', 'k');
 axis square;
+figure(3)
+plot(aucLR,0:0.05:1);
+
+figure(4)
+plot(aucNB,0:0.05:1);
