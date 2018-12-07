@@ -7,7 +7,15 @@
 - K = 4, cluster quality is 57.9.
 - K = 5, cluster quality is 54.9.
 
-As the K increase, the cluster quality decrease. When K equals to 2, the cluster gets its best quality which is 83.5.
+As the K increase, the cluster quality decrease. When K equals to 5, the cluster gets its minimize quality which is 54.9.
+
+Reason: The algorithm is that
+
+1. Determine an initial cluster center for each cluster so that there are K initial cluster centers.
+2. Assign samples in the sample set to the nearest neighbor cluster according to the principle of minimum distance
+3. Use the sample mean in each cluster as the new cluster center.
+4. Repeat step 2.3 until the cluster center no longer changes.
+5. End, get minimize the squared error criterion.
 
 ## 2
 
