@@ -1,23 +1,23 @@
 # Assignment 5
 
-## 1
+## Q1.6A.
 
 - K = 2, cluster quality is 83.5.
 - K = 3, cluster quality is 62.8.
 - K = 4, cluster quality is 57.9.
 - K = 5, cluster quality is 54.9.
 
-As the K increase, the cluster quality decrease. When K equals to 5, the cluster gets its minimize quality which is 54.9.
+As the K increase, the cluster quality decrease. When K equals to 5, the cluster gets its minimize quality which is 54.9\. Because the cluster quality is the total Distence To Cluster. So The min value is better.
 
 Reason: The algorithm is that
 
 1. Determine an initial cluster center for each cluster so that there are K initial cluster centers.
-2. Assign samples in the sample set to the nearest neighbor cluster according to the principle of minimum distance
-3. Use the sample mean in each cluster as the new cluster center.
+2. Assign samples in the sample set to the nearest neighbor cluster based on the principle of minimum distance
+3. Use the sample data mean in each cluster as the new cluster center.
 4. Repeat step 2.3 until the cluster center no longer changes.
 5. End, get minimize the squared error criterion.
 
-## 2
+## Q1.6B.
 
 seed | K | cluster quality
 ---- | - | ---------------
@@ -30,7 +30,9 @@ seed | K | cluster quality
 6    | 3 | 65.6
 7    | 3 | 62.7
 
-## 3
+The different seeds is the random seed that will pick different initial conditions for the cluster. So the number of the seed will not affect the cluster quality, only affect the locations of the initial points.
+
+## Q1.7.
 
 Clustering accuracy improved after uncommenting
 
@@ -38,7 +40,7 @@ Clustering accuracy improved after uncommenting
 X = meas; d = 4;
 ```
 
-The **meas** has 150 rows and 4 columns.
+The value **meas** has 150 rows and 4 columns.
 
 Before uncommenting the code above.
 
@@ -46,13 +48,9 @@ Before uncommenting the code above.
 X = meas(:,1:2); d = 2;
 ```
 
-The **X** takes the first two columns of **meas**.
+The **X** takes the first two columns of **meas**. So that after uncommenting the code, the clustering accuracy improved.
 
-Why???????????
-
-## 4
-
-## 4-3
+## Q2.3
 
 1. Run Cell2A. Naïve Bayes classifiers
 
@@ -64,11 +62,11 @@ Why???????????
   - LR Train acc: 0.70
   - LR Test acc: 0.76 ![img](Lab6/4-1-2.jpg)
 
-## 4-4
+## Q2.4
 
 Decision is the LR classifiers , that the test accuracy is 0.76 which is better than Naïve Bayes classifiers Test accuracy.
 
-## 4-5
+## Q2.5
 
 1. threshold = 0.3
 
@@ -97,7 +95,7 @@ Decision is the LR classifiers , that the test accuracy is 0.76 which is better 
   - NB Test acc: 0.56
   - ![img](Lab6/4-5-6.jpg)
 
-## 4-6
+## Q2.7
 
 ```matlab
 
@@ -138,7 +136,7 @@ line([0,1], [0,1], 'LineWidth', 2, 'Color', 'k');
 axis square;
 ```
 
-## 4-7
+## Q2.8
 
 - ROC Curve LR classifiers ![img](Lab6/4-7-2.jpg)
 - ROC Curve Naïve Bayes classifiers ![img](Lab6/4-7-1.jpg)
@@ -163,9 +161,28 @@ line([0,1], [0,1], 'LineWidth', 2, 'Color', 'k');
 axis square;
 ```
 
-## 4-11
+## Q2.11
 
-## 4-12
+```matlab
+[~,~,~,aucLR]=perfcurve(Yte,pTeLR,1);
+[~,~,~,aucNB]=perfcurve(Yte,pTeNB(:,2),1);
+```
+
+The result shows that
+
+- aucLR = 0.8104
+- aucNB = 0.7992
+
+The LR is preferabled by AUC metric.
+
+## Q2.12
+
+```matlab
+nb_tpr = find(fpr_nb == 0.16);
+lr_tpr = find(fpr_lr == 0.16);
+```
+
+Using the code to find the location in the array the FPR Naïve Bayes classifiers and LR classifiers is 0.16\. And using the same location to find each classifiers TPR.
 
 - When the Naïve Bayes classifiers' FPR is 0.16, the maximum TPR is 0.64.
 - When the LR classifiers' FPR is 0.16, the maximum TPR is 0.60.
